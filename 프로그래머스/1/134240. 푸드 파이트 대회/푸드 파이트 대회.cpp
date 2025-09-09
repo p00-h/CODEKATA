@@ -6,18 +6,14 @@ using namespace std;
 string solution(vector<int> food) {
     string answer = "0";
 
-    string left_str = "";    
-    string right_str = "";
-    for(unsigned int i = 1; i < food.size(); i++) {
+    for(int i = food.size()-1; i > 0; i--) {
         int count = food[i] / 2;
         if(count > 0) {
             for(int k = 0; k < count; k++) {
-                left_str = left_str + to_string(i);
-                right_str = to_string(i) + right_str;            
+                answer = to_string(i) + answer + to_string(i);            
             }        
         }    
-    }    
-    answer = left_str + "0" + right_str;
+    }
     
     return answer;
 }
